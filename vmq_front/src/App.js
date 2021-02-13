@@ -1,64 +1,24 @@
-import React, { Component } from 'react'
-import socketIOClient from 'socket.io-client'
+import React, { useState, useEffect } from "react";
+import socketIOClient from "socket.io-client";
+const ENDPOINT = "http://127.0.0.1:4001";
 
-class App extends Component {
-  constructor() {
-    super()
+function App() {
+  const [response, setResponse] = useState("");
 
-    this.state = {
-      input: '',
-      message: [],
-      endpoint: "http://localhost:9000" // เชื่อมต่อไปยัง url ของ realtime server
-    }
-  }
+  useEffect(() => {
+   
+    const socket = socketIOClient(ENDPOINT);
+    socket.on("FromAPI", data => {
+      console.log("UPDATE")
+      setResponse(data);
+    });
+  }, []);
 
-  componentDidMount = () => {
-    this.response()
-  }
-
-  // เมื่อมีการส่งข้อมูลไปยัง server
-  send = (message) => {
-    const { endpoint, input } = this.state
-    const socket = socketIOClient(endpoint)
-    socket.emit('sent-message', input)
-    this.setState({ input: '' })
-  }
-
-  // รอรับข้อมูลเมื่อ server มีการ update
-  response = () => {
-    const { endpoint, message } = this.state
-    const temp = message
-    const socket = socketIOClient(endpoint)
-    socket.on('new-message', (messageNew) => {
-      temp.push(messageNew)
-      this.setState({ message: temp })
-    })
-  }
-
-  changeInput = (e) => {
-    this.setState({ input: e.target.value })
-  }
-
-  render() {
-    const { input, message } = this.state
-    return (
-      <div>
-        <div style={style}>
-          <input value={input} onChange={this.changeInput} />
-          <button onClick={() => this.send()}>Send</button>
-        </div>
-        {
-          message.map((data, i) =>
-            <div key={i} style={style} >
-              {i + 1} : {data}
-            </div>
-          )
-        }
-      </div>
-    )
-  }
+  return (
+    <p>
+      It's <time dateTime={response}>{response}</time>
+    </p>
+  );
 }
 
-const style = { marginTop: 20, paddingLeft: 50 }
-
-export default App
+export default App;
