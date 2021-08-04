@@ -7,7 +7,7 @@ function App() {
   const [response, setResponse] = useState("");
 
   const sendMessage = (message) => {
-    fetch(`${ENDPOINT}/update/?message="test"`, {
+    fetch(`${ENDPOINT}/update/?username=astralair&score=1`, {
       method: "GET",
     });
   };
@@ -18,6 +18,12 @@ function App() {
       console.log("UPDATE");
       console.log(data);
       setResponse(data);
+    });
+
+    socket.on("AllScore", (data) => {
+      console.log("allscore");
+      console.log(data);
+      //setResponse(data);
     });
   }, []);
 
