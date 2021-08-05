@@ -30,12 +30,23 @@ import {
   BottomLeftTriangle,
 } from "./style_component";
 
-const mockData = [{ title: "Mirai Nostalgia", url: "V9x0oePee6Q" }];
-const mockAllTitle = ["Mirai Nostalgia", "Sakura moyu"];
+const mockData = [
+  { title: "Mirai Nostalgia", url: "V9x0oePee6Q" },
+  { title: "Hapymaher -Fragmentation Dream-", url: "iYSHPDE9Sx0" },
+  { title: "Hapymaher", url: "hIFbCGRdKPo" },
+  { title: "Subarashiki Hibi ~Furenzoku Sonzai~", url: "TSk8bN_spvE" },
+];
+const mockAllTitle = [
+  "Mirai Nostalgia",
+  "Hapymaher -Fragmentation Dream-",
+  "Hapymaher",
+  "Subarashiki Hibi ~Furenzoku Sonzai~",
+];
 function Content() {
   var quaryData = all_vn;
   console.log(quaryData);
   var obj = someobject;
+  const [index, setIndex] = useState(0);
   const [trueAnswer, setTrueAnswer] = useState("");
   const [myAnswer, setMyAnswer] = useState("");
   const [url, seturl] = useState("PWbi8J1_X5Q");
