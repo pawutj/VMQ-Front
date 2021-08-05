@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import YouTube from "react-youtube";
 import someobject from "./aaaaaa.json";
 import TextField from "@material-ui/core/TextField";
@@ -29,8 +29,10 @@ import {
   TopRightTriangle,
   BottomLeftTriangle,
 } from "./style_component";
+import { getRules } from "axe-core";
 
 const mockData = [
+  { title: "Subarashiki Hibi ~Furenzoku Sonzai~", url: "TSk8bN_spvE" },
   { title: "Mirai Nostalgia", url: "V9x0oePee6Q" },
   { title: "Hapymaher -Fragmentation Dream-", url: "iYSHPDE9Sx0" },
   { title: "Hapymaher", url: "hIFbCGRdKPo" },
@@ -44,20 +46,37 @@ const mockAllTitle = [
 ];
 function Content() {
   const [myScore, setMyScore] = useState(0);
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState(-1);
   const [trueAnswer, setTrueAnswer] = useState("");
   const [myAnswer, setMyAnswer] = useState("");
   const [url, seturl] = useState("PWbi8J1_X5Q");
   const [isHide, setIsHide] = useState(false);
+  const [isPlay, setIsplay] = useState(false);
+  const getURL = (index) => {
+    if (index == -1) return "0";
+    return mockData[index].url;
+  };
+  const getTrueAnswer = (index) => {
+    if (index == -1) return "-1";
+    return mockData[index].title;
+  };
+
+  useEffect(() => {
+    const url = getURL(index);
+    const answer = getTrueAnswer(index);
+    console.log("!!!!!!", url);
+    seturl(url);
+    setTrueAnswer(answer);
+  }, [index]);
 
   const checkAnswer = () => {
-    console.log(trueAnswer, "!!!!!", myAnswer);
+    //console.log(trueAnswer, "!!!!!", myAnswer);
 
     if (trueAnswer == myAnswer) {
       console.log("True");
       setMyScore(myScore + 1);
     }
-    setIndex(index + 1);
+    //setIndex(index + 1);
   };
 
   const opts = {
@@ -72,11 +91,6 @@ function Content() {
     // access to player in all event handlers via event.target
     event.target.pauseVideo();
   };
-
-  function randomURLV2() {
-    if (index < 5) setTrueAnswer(mockData[index].title);
-    return mockData[index].url;
-  }
 
   return (
     <StyleAPP className="App">
@@ -118,14 +132,20 @@ function Content() {
           <h1>myScore {myScore}</h1>
           <CountdownCircleTimer
             onComplete={() => {
-              // do your stuff here
-              return [true, 15000]; // repeat animation in 1.5 seconds
+              checkAnswer();
+              setIndex(index + 1);
+              return [true, 2000]; // repeat animation in 1.5 seconds
             }}
-            isPlaying
+            isPlaying={isPlay}
             duration={30}
-            initialRemainingTime={30}
-            colors="#A30000"
-          />
+            colors={[
+              ["#004777", 0.33],
+              ["#F7B801", 0.33],
+              ["#A30000", 0.33],
+            ]}
+          >
+            {({ remainingTime }) => remainingTime}
+          </CountdownCircleTimer>
           <StyleYoutubeFrame>
             <StyleTriggerHide isHide={isHide}>
               <YouTube videoId={url} opts={opts} onReady={onReady} />
@@ -162,8 +182,7 @@ function Content() {
             </StyleButton>
             <StyleButton
               onClick={() => {
-                seturl(randomURLV2());
-                setIsHide(() => false);
+                setIsplay(true);
               }}
             >
               random URL{" "}
