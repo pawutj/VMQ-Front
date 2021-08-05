@@ -5,7 +5,7 @@ import someobject from "./aaaaaa.json";
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import all_vn from "./all_vn.json";
-
+import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import {
   filterByVote,
   createNumeralArray,
@@ -131,6 +131,16 @@ function Content() {
         <StyleBody>
           <Styleh1>ReactGuessYoutube</Styleh1>
           <h1>myScore {myScore}</h1>
+          <CountdownCircleTimer
+            onComplete={() => {
+              // do your stuff here
+              return [true, 15000]; // repeat animation in 1.5 seconds
+            }}
+            isPlaying
+            duration={30}
+            initialRemainingTime={30}
+            colors="#A30000"
+          />
           <StyleYoutubeFrame>
             <StyleTriggerHide isHide={isHide}>
               <YouTube videoId={url} opts={opts} onReady={onReady} />
@@ -140,7 +150,6 @@ function Content() {
               <Stylemaibok />
             </StyleTriggerHide>
           </StyleYoutubeFrame>
-
           <StyleButtonFrame>
             <Styleh1>
               {index}/{mockData.length}
