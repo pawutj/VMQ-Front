@@ -46,6 +46,7 @@ function Content() {
   var quaryData = all_vn;
   console.log(quaryData);
   var obj = someobject;
+  const [myScore, setMyScore] = useState(0);
   const [index, setIndex] = useState(0);
   const [trueAnswer, setTrueAnswer] = useState("");
   const [myAnswer, setMyAnswer] = useState("");
@@ -57,7 +58,12 @@ function Content() {
 
   const checkAnswer = () => {
     console.log(trueAnswer, "!!!!!", myAnswer);
-    if (trueAnswer == myAnswer) console.log("True");
+
+    if (trueAnswer == myAnswer) {
+      console.log("True");
+      setMyScore(myScore + 1);
+    }
+    setIndex(index + 1);
   };
   const [count, setcound] = useState(1);
   // console.log(ind);
@@ -79,12 +85,8 @@ function Content() {
   }
 
   function randomURLV2() {
-    setcound((count) => (count += 1));
-    var randomInd = ind[Math.floor(Math.random() * ind.length)];
-    console.log("randomitem = ", randomInd);
-    setind((ind) => ind.filter((ind) => ind != randomInd));
-    setTrueAnswer(mockData[0].title);
-    return obj.keys[randomInd];
+    if (index < 5) setTrueAnswer(mockData[index].title);
+    return mockData[index].url;
   }
   function filterEasy() {
     obj = filterByVote(obj);
@@ -128,6 +130,7 @@ function Content() {
       <StyleBG style={{ height: window.innerHeight }}>
         <StyleBody>
           <Styleh1>ReactGuessYoutube</Styleh1>
+          <h1>myScore {myScore}</h1>
           <StyleYoutubeFrame>
             <StyleTriggerHide isHide={isHide}>
               <YouTube videoId={url} opts={opts} onReady={onReady} />
@@ -140,7 +143,7 @@ function Content() {
 
           <StyleButtonFrame>
             <Styleh1>
-              {count}/{Object.keys(obj.vote1).length}
+              {index}/{mockData.length}
             </Styleh1>
 
             <Autocomplete
