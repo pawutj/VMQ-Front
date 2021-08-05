@@ -43,18 +43,12 @@ const mockAllTitle = [
   "Subarashiki Hibi ~Furenzoku Sonzai~",
 ];
 function Content() {
-  var quaryData = all_vn;
-  console.log(quaryData);
-  var obj = someobject;
   const [myScore, setMyScore] = useState(0);
   const [index, setIndex] = useState(0);
   const [trueAnswer, setTrueAnswer] = useState("");
   const [myAnswer, setMyAnswer] = useState("");
   const [url, seturl] = useState("PWbi8J1_X5Q");
   const [isHide, setIsHide] = useState(false);
-  const [ind, setind] = useState(
-    createNumeralArray(Object.keys(obj.vote1).length)
-  );
 
   const checkAnswer = () => {
     console.log(trueAnswer, "!!!!!", myAnswer);
@@ -65,8 +59,7 @@ function Content() {
     }
     setIndex(index + 1);
   };
-  const [count, setcound] = useState(1);
-  // console.log(ind);
+
   const opts = {
     height: "390",
     width: "640",
@@ -80,17 +73,9 @@ function Content() {
     event.target.pauseVideo();
   };
 
-  function getRndInteger(min, max) {
-    return Math.floor(Math.random() * (max - min)) + min;
-  }
-
   function randomURLV2() {
     if (index < 5) setTrueAnswer(mockData[index].title);
     return mockData[index].url;
-  }
-  function filterEasy() {
-    obj = filterByVote(obj);
-    //console.log(obj);
   }
 
   return (
