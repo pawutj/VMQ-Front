@@ -45,13 +45,13 @@ const mockAllTitle = [
   "Subarashiki Hibi ~Furenzoku Sonzai~",
 ];
 function Content() {
+  const [username, setUsername] = useState("");
   const [myScore, setMyScore] = useState(0);
   const [index, setIndex] = useState(-1);
   const [trueAnswer, setTrueAnswer] = useState("");
   const [myAnswer, setMyAnswer] = useState("");
   const [url, seturl] = useState("PWbi8J1_X5Q");
   const [isHide, setIsHide] = useState(false);
-  const [isPlay, setIsplay] = useState(false);
   const [time, setTime] = useState(0);
   const getURL = (index) => {
     if (index == -1) return "0";
@@ -142,6 +142,17 @@ function Content() {
 
       <StyleBG style={{ height: window.innerHeight }}>
         <StyleBody>
+          <form>
+            <label>
+              Name:
+              <input
+                type="text"
+                name="name"
+                onChange={(e) => setUsername(e.target.value)}
+                value={username}
+              />
+            </label>
+          </form>
           <Styleh1>ReactGuessYoutube</Styleh1>
           <h1>myScore {myScore}</h1>
 
@@ -174,18 +185,10 @@ function Content() {
               )}
             />
 
-            <StyleButton onClick={checkAnswer}>Send Answer</StyleButton>
+            <StyleButton>Send Answer</StyleButton>
 
-            <StyleButton onClick={() => setIsHide(() => !isHide)}>
-              toggle hide{" "}
-            </StyleButton>
-            <StyleButton
-              onClick={() => {
-                setIsplay(true);
-              }}
-            >
-              random URL{" "}
-            </StyleButton>
+            <StyleButton>toggle hide </StyleButton>
+            <StyleButton>random URL </StyleButton>
           </StyleButtonFrame>
         </StyleBody>
       </StyleBG>
