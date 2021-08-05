@@ -6,8 +6,6 @@ import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import all_vn from "./all_vn.json";
 
-//const data = require("./anydata.json");
-
 import {
   filterByVote,
   createNumeralArray,
@@ -32,16 +30,24 @@ import {
   BottomLeftTriangle,
 } from "./style_component";
 
+const mockData = [{ title: "Mirai Nostalgia", url: "V9x0oePee6Q" }];
+const mockAllTitle = ["Mirai Nostalgia", "Sakura moyu"];
 function Content() {
   var quaryData = all_vn;
   console.log(quaryData);
   var obj = someobject;
-  // console.log(obj);
+  const [trueAnswer, setTrueAnswer] = useState("");
+  const [myAnswer, setMyAnswer] = useState("");
   const [url, seturl] = useState("PWbi8J1_X5Q");
   const [isHide, setIsHide] = useState(false);
   const [ind, setind] = useState(
     createNumeralArray(Object.keys(obj.vote1).length)
   );
+
+  const checkAnswer = () => {
+    console.log(trueAnswer, "!!!!!", myAnswer);
+    if (trueAnswer == myAnswer) console.log("True");
+  };
   const [count, setcound] = useState(1);
   // console.log(ind);
   const opts = {
@@ -66,6 +72,7 @@ function Content() {
     var randomInd = ind[Math.floor(Math.random() * ind.length)];
     console.log("randomitem = ", randomInd);
     setind((ind) => ind.filter((ind) => ind != randomInd));
+    setTrueAnswer(mockData[0].title);
     return obj.keys[randomInd];
   }
   function filterEasy() {
@@ -127,7 +134,8 @@ function Content() {
 
             <Autocomplete
               id="free-solo-demo"
-              options={uniqueArray(jsonObjectTolist(quaryData.name_romanji))}
+              options={mockAllTitle}
+              onChange={(e, v) => setMyAnswer(v)}
               renderInput={(params) => (
                 <TextField
                   {...params}
@@ -138,6 +146,8 @@ function Content() {
                 />
               )}
             />
+
+            <StyleButton onClick={checkAnswer}>Send Answer</StyleButton>
 
             <StyleButton onClick={() => setIsHide(() => !isHide)}>
               toggle hide{" "}
