@@ -52,6 +52,7 @@ function Content() {
   const [url, seturl] = useState("PWbi8J1_X5Q");
   const [isHide, setIsHide] = useState(false);
   const [isPlay, setIsplay] = useState(false);
+  const [time, setTime] = useState(0);
   const getURL = (index) => {
     if (index == -1) return "0";
     return mockData[index].url;
@@ -62,17 +63,30 @@ function Content() {
   };
 
   useEffect(() => {
+    const timer = setTimeout(() => {
+      setTime(time + 1);
+
+      setIndex((index) => index + 1);
+    }, 30000);
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [time]);
+
+  useEffect(() => {
+    checkAnswer();
     const url = getURL(index);
     const answer = getTrueAnswer(index);
-    console.log("!!!!!!", url);
     seturl(url);
     setTrueAnswer(answer);
+    console.log(url, answer);
   }, [index]);
 
   const checkAnswer = () => {
-    //console.log(trueAnswer, "!!!!!", myAnswer);
-
-    if (trueAnswer == myAnswer) {
+    const true_a = trueAnswer;
+    const my_a = myAnswer;
+    console.log(true_a, "!!!", my_a);
+    if (true_a == my_a) {
       console.log("True");
       setMyScore(myScore + 1);
     }
@@ -130,22 +144,7 @@ function Content() {
         <StyleBody>
           <Styleh1>ReactGuessYoutube</Styleh1>
           <h1>myScore {myScore}</h1>
-          <CountdownCircleTimer
-            onComplete={() => {
-              checkAnswer();
-              setIndex(index + 1);
-              return [true, 2000]; // repeat animation in 1.5 seconds
-            }}
-            isPlaying={isPlay}
-            duration={30}
-            colors={[
-              ["#004777", 0.33],
-              ["#F7B801", 0.33],
-              ["#A30000", 0.33],
-            ]}
-          >
-            {({ remainingTime }) => remainingTime}
-          </CountdownCircleTimer>
+
           <StyleYoutubeFrame>
             <StyleTriggerHide isHide={isHide}>
               <YouTube videoId={url} opts={opts} onReady={onReady} />
