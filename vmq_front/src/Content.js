@@ -5,6 +5,7 @@ import someobject from "./aaaaaa.json";
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import all_vn from "./all_vn.json";
+import { maxSong } from "./setting";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import {
   filterByVote,
@@ -58,7 +59,7 @@ function Content({ sendMessage, allScore }) {
       setTime(time + 1);
 
       setIndex((index) => index + 1);
-      if (index >= mockData.length) return;
+      if (index >= mockData.length || index > maxSong) return;
     }, 30000);
     return () => {
       clearTimeout(timer);
