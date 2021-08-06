@@ -35,7 +35,7 @@ var shuffleSeed = require("shuffle-seed");
 
 const mockData = shuffleSeed.shuffle(_mockData, 1);
 const mockAllTitle = uniqueArray(shuffleSeed.shuffle(_mockAllTitle, 1));
-function Content({ sendMessage, allScore }) {
+function Content({ sendMessage, allScore, setIsEnd }) {
   const [username, setUsername] = useState("");
   const [myScore, setMyScore] = useState(0);
   const [index, setIndex] = useState(-1);
@@ -59,7 +59,10 @@ function Content({ sendMessage, allScore }) {
       setTime(time + 1);
 
       setIndex((index) => index + 1);
-      if (index >= mockData.length || index > maxSong) return;
+      if (index >= mockData.length || index > maxSong) {
+        setIsEnd(true);
+        clearTimeout(timer);
+      }
     }, 30000);
     return () => {
       clearTimeout(timer);

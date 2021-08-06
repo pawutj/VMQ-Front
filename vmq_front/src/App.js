@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import EndCredit from "./EndCredit";
 import socketIOClient from "socket.io-client";
 import Content from "./Content";
 //const ENDPOINT = "http://127.0.0.1:4001";
@@ -10,6 +11,7 @@ function App() {
   const [response, setResponse] = useState("");
   const [allScore, setAllScore] = useState([]);
   const [isStart, setIsStart] = useState(false);
+  const [isEnd, setIsEnd] = useState(false);
   const sendMessage = (username, score) => {
     fetch(`${ENDPOINT}/update/?username=${username}&score=${score}`, {
       method: "GET",
@@ -44,7 +46,14 @@ function App() {
       >
         <p>start</p>
       </button>
-      {isStart && <Content sendMessage={sendMessage} allScore={allScore} />}
+      {isStart && isEnd == false && (
+        <Content
+          sendMessage={sendMessage}
+          allScore={allScore}
+          setIsEnd={setIsEnd}
+        />
+      )}
+      {isEnd && <EndCredit />}
     </div>
   );
 }
