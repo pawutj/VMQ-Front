@@ -6,7 +6,7 @@ const data = { foo: 1, bar: 2 };
 
 function App() {
   const [response, setResponse] = useState("");
-
+  const [allScore, setAllScore] = [];
   const sendMessage = (username, score) => {
     fetch(`${ENDPOINT}/update/?username=${username}&score=${score}`, {
       method: "GET",
@@ -24,7 +24,7 @@ function App() {
     socket.on("AllScore", (data) => {
       console.log("allscore");
       console.log(data);
-      //setResponse(data);
+      setAllScore(data);
     });
   }, []);
 

@@ -52,7 +52,7 @@ function Content({ sendMessage }) {
   const [url, seturl] = useState("PWbi8J1_X5Q");
   const [isHide, setIsHide] = useState(false);
   const [time, setTime] = useState(0);
-  const [allScore, setAllScore] = [];
+
   const getURL = (index) => {
     if (index == -1) return "0";
     return mockData[index].url;
@@ -67,6 +67,7 @@ function Content({ sendMessage }) {
       setTime(time + 1);
 
       setIndex((index) => index + 1);
+      if (index >= mockData.length) return;
     }, 30000);
     return () => {
       clearTimeout(timer);
