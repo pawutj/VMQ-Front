@@ -108,6 +108,11 @@ function Content({ sendMessage, allScore, setIsEnd }) {
     event.target.pauseVideo();
   };
 
+  const onPlay = (event) => {
+    // console.log(event.target.getVolume(), "!!!!!!!!!!");
+    event.target.setVolume(30);
+  };
+
   return (
     <StyleAPP className="App">
       <Frametop></Frametop>
@@ -168,6 +173,7 @@ function Content({ sendMessage, allScore, setIsEnd }) {
                 videoId={url}
                 opts={opts}
                 onReady={onReady}
+                onPlay={onPlay}
                 onError={() => {
                   setIndex(index + 1);
                 }}
