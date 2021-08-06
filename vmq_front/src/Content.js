@@ -30,19 +30,48 @@ import {
   BottomLeftTriangle,
 } from "./style_component";
 
-const mockData = [
+function shuffle(a) {
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+const mockData = shuffle([
   { title: "Subarashiki Hibi ~Furenzoku Sonzai~", url: "TSk8bN_spvE" },
   { title: "Mirai Nostalgia", url: "V9x0oePee6Q" },
   { title: "Hapymaher -Fragmentation Dream-", url: "iYSHPDE9Sx0" },
   { title: "Hapymaher", url: "hIFbCGRdKPo" },
   { title: "Subarashiki Hibi ~Furenzoku Sonzai~", url: "TSk8bN_spvE" },
-];
-const mockAllTitle = [
+  { title: "Einstein Yori Ai o Komete", url: "k47AE29qyNQ" },
+  { title: "9 -Nine- Yukiiro Yukihana Yukinoato", url: "PFDTxJDNw88" },
+  { title: "Hakuchuumu no Aojashin", url: "lyVKfhKLs1c" },
+  { title: "Hamidashi Creative", url: "GD-ZqpHVMHY" },
+  { title: "Dohna Dohna -Issho ni Warui Koto o Shiyou-", url: "geqmu1xF4Ns" },
+  { title: "Kakenuke★Seishun Sparking!", url: "pC91EvljiZE" },
+  { title: "Houkago Cinderella", url: "_UaHvUvYP-I" },
+  { title: "Petrichor", url: "T4SVteeP1u8" },
+  { title: "Sarute", url: "GZ8X_TLxmtg" },
+  { title: "Seishun Fragile", url: "p3u6MVT1TwA" },
+  { title: "Ren'ai x Royale", url: "rudbX-hFQc4" },
+]);
+const mockAllTitle = shuffle([
   "Mirai Nostalgia",
   "Hapymaher -Fragmentation Dream-",
   "Hapymaher",
   "Subarashiki Hibi ~Furenzoku Sonzai~",
-];
+  "Einstein Yori Ai o Komete",
+  "9 -Nine- Yukiiro Yukihana Yukinoato",
+  "Hakuchuumu no Aojashin",
+  "Hamidashi Creative",
+  "Dohna Dohna -Issho ni Warui Koto o Shiyou-",
+  "Kakenuke★Seishun Sparking!",
+  "Houkago Cinderella",
+  "Petrichor",
+  "Sarute",
+  "Seishun Fragile",
+  "Ren'ai x Royale",
+]);
 function Content({ sendMessage, allScore }) {
   const [username, setUsername] = useState("");
   const [myScore, setMyScore] = useState(0);
@@ -194,18 +223,26 @@ function Content({ sendMessage, allScore }) {
             <StyleButton>toggle hide </StyleButton>
             <StyleButton>random URL </StyleButton>
           </StyleButtonFrame>
-          <table>
-            <tr>
-              <th>Username</th>
-              <th>Score</th>
-            </tr>
-            {allScore.map((c) => (
+          <div
+            style={{
+              justifyContent: "center",
+              alignContent: "center",
+              margin: "auto",
+            }}
+          >
+            <table>
               <tr>
-                <td>{allScore.username}</td>
-                <td>{allScore.score}</td>
+                <th>Username</th>
+                <th>Score</th>
               </tr>
-            ))}
-          </table>
+              {allScore.map((c) => (
+                <tr>
+                  <td>{c.username}</td>
+                  <td>{c.score}</td>
+                </tr>
+              ))}
+            </table>
+          </div>
         </StyleBody>
       </StyleBG>
     </StyleAPP>
