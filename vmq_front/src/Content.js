@@ -7,6 +7,7 @@ import Autocomplete from "@material-ui/lab/Autocomplete";
 import all_vn from "./all_vn.json";
 import { maxSong, randomSeed } from "./setting";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
+import SoundSlider from "./Component/SoundSlider";
 import {
   filterByVote,
   createNumeralArray,
@@ -46,7 +47,11 @@ function Content({ sendMessage, allScore, setIsEnd }) {
   const [url, seturl] = useState("PWbi8J1_X5Q");
   const [isHide, setIsHide] = useState(false);
   const [time, setTime] = useState(0);
+  const [value, setValue] = React.useState(80);
 
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
   const getURL = (index) => {
     if (index == -1) return "0";
     return mockData[index].url;
@@ -110,7 +115,7 @@ function Content({ sendMessage, allScore, setIsEnd }) {
 
   const onPlay = (event) => {
     // console.log(event.target.getVolume(), "!!!!!!!!!!");
-    event.target.setVolume(30);
+    event.target.setVolume(value);
   };
 
   return (
@@ -164,6 +169,7 @@ function Content({ sendMessage, allScore, setIsEnd }) {
               />
             </label>
           </form>
+          <SoundSlider value={value} handleChange={handleChange} />
           <Styleh1>ReactGuessYoutube</Styleh1>
           <h1>myScore {myScore}</h1>
 
