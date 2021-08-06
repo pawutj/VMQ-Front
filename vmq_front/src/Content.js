@@ -100,6 +100,7 @@ function Content({ sendMessage, allScore }) {
     playerVars: {
       // https://developers.google.com/youtube/player_parameters
       autoplay: 1,
+      start: 45,
     },
   };
   const onReady = (event) => {
