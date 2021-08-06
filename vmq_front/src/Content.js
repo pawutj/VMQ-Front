@@ -143,7 +143,11 @@ function Content({ sendMessage, allScore }) {
 
       <StyleBG style={{ height: window.innerHeight }}>
         <StyleBody>
-          <form>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+            }}
+          >
             <label>
               Name:
               <input
