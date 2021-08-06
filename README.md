@@ -1,14 +1,14 @@
 # VMQ-Front
 
-Inspiration by Anime Music Quiz? \n
-FrontEnd - https://github.com/pawutj/VMQ-Front -ReactJS \n
-Backend - https://github.com/pawutj/VMQ - SocketIO
+Inspiration by Anime Music Quiz? \
+FrontEnd - https://github.com/pawutj/VMQ-Front -ReactJS \
+Backend - https://github.com/pawutj/VMQ - SocketIO \
 
-Deploy on HuaweiCloud 
+Deploy on HuaweiCloud \
 
-Contribution
-AstralAria - Developer 
-AraimaiRu - Developer
+Contribution \
+AstralAria - Developer \ 
+AraimaiRu - Developer \ 
 
 
 
