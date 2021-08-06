@@ -164,7 +164,14 @@ function Content({ sendMessage, allScore, setIsEnd }) {
 
           <StyleYoutubeFrame>
             <StyleTriggerHide isHide={isHide}>
-              <YouTube videoId={url} opts={opts} onReady={onReady} />
+              <YouTube
+                videoId={url}
+                opts={opts}
+                onReady={onReady}
+                onError={() => {
+                  setIndex(index + 1);
+                }}
+              />
             </StyleTriggerHide>
 
             <StyleTriggerHide isHide={!isHide}>
