@@ -29,7 +29,6 @@ import {
   TopRightTriangle,
   BottomLeftTriangle,
 } from "./style_component";
-import { getRules } from "axe-core";
 
 const mockData = [
   { title: "Subarashiki Hibi ~Furenzoku Sonzai~", url: "TSk8bN_spvE" },
@@ -44,7 +43,7 @@ const mockAllTitle = [
   "Hapymaher",
   "Subarashiki Hibi ~Furenzoku Sonzai~",
 ];
-function Content() {
+function Content({ sendMessage }) {
   const [username, setUsername] = useState("");
   const [myScore, setMyScore] = useState(0);
   const [index, setIndex] = useState(-1);
@@ -53,6 +52,7 @@ function Content() {
   const [url, seturl] = useState("PWbi8J1_X5Q");
   const [isHide, setIsHide] = useState(false);
   const [time, setTime] = useState(0);
+  const [allScore, setAllScore] = [];
   const getURL = (index) => {
     if (index == -1) return "0";
     return mockData[index].url;
@@ -82,6 +82,10 @@ function Content() {
     console.log(url, answer);
   }, [index]);
 
+  useEffect(() => {
+    sendMessage(username, myScore);
+  }, [myScore]);
+
   const checkAnswer = () => {
     const true_a = trueAnswer;
     const my_a = myAnswer;
@@ -90,7 +94,6 @@ function Content() {
       console.log("True");
       setMyScore(myScore + 1);
     }
-    //setIndex(index + 1);
   };
 
   const opts = {

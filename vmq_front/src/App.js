@@ -7,8 +7,8 @@ const data = { foo: 1, bar: 2 };
 function App() {
   const [response, setResponse] = useState("");
 
-  const sendMessage = (message) => {
-    fetch(`${ENDPOINT}/update/?username=astralair&score=1`, {
+  const sendMessage = (username, score) => {
+    fetch(`${ENDPOINT}/update/?username=${username}&score=${score}`, {
       method: "GET",
     });
   };
@@ -35,7 +35,7 @@ function App() {
       </p>
       <button onClick={sendMessage}>test Emit</button>
 
-      <Content />
+      <Content sendMessage={sendMessage} />
     </div>
   );
 }
