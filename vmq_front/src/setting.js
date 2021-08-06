@@ -1,2 +1,3 @@
 const maxSong = 40;
-export { maxSong };
+const randomSeed = 3131;
+export { maxSong, randomSeed };

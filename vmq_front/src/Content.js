@@ -5,7 +5,7 @@ import someobject from "./aaaaaa.json";
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import all_vn from "./all_vn.json";
-import { maxSong } from "./setting";
+import { maxSong, randomSeed } from "./setting";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import {
   filterByVote,
@@ -33,8 +33,10 @@ import {
 } from "./style_component";
 var shuffleSeed = require("shuffle-seed");
 
-const mockData = shuffleSeed.shuffle(_mockData, 1);
-const mockAllTitle = uniqueArray(shuffleSeed.shuffle(_mockAllTitle, 1));
+const mockData = shuffleSeed.shuffle(_mockData, randomSeed);
+const mockAllTitle = uniqueArray(
+  shuffleSeed.shuffle(_mockAllTitle, randomSeed)
+);
 function Content({ sendMessage, allScore, setIsEnd }) {
   const [username, setUsername] = useState("");
   const [myScore, setMyScore] = useState(0);
