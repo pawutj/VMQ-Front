@@ -12,6 +12,7 @@ import {
   jsonObjectTolist,
   uniqueArray,
 } from "./util.js";
+import { _mockData, _mockAllTitle } from "./mock";
 import {
   StyleAPP,
   StyleButton,
@@ -37,47 +38,8 @@ function shuffle(a) {
   }
   return a;
 }
-const mockData = shuffleSeed.shuffle(
-  [
-    { title: "Subarashiki Hibi ~Furenzoku Sonzai~", url: "TSk8bN_spvE" },
-    { title: "Mirai Nostalgia", url: "V9x0oePee6Q" },
-    { title: "Hapymaher -Fragmentation Dream-", url: "iYSHPDE9Sx0" },
-    { title: "Hapymaher", url: "hIFbCGRdKPo" },
-    { title: "Subarashiki Hibi ~Furenzoku Sonzai~", url: "TSk8bN_spvE" },
-    { title: "Einstein Yori Ai o Komete", url: "k47AE29qyNQ" },
-    { title: "9 -Nine- Yukiiro Yukihana Yukinoato", url: "PFDTxJDNw88" },
-    { title: "Hakuchuumu no Aojashin", url: "lyVKfhKLs1c" },
-    { title: "Hamidashi Creative", url: "GD-ZqpHVMHY" },
-    { title: "Dohna Dohna -Issho ni Warui Koto o Shiyou-", url: "geqmu1xF4Ns" },
-    { title: "Kakenuke★Seishun Sparking!", url: "pC91EvljiZE" },
-    { title: "Houkago Cinderella", url: "_UaHvUvYP-I" },
-    { title: "Petrichor", url: "T4SVteeP1u8" },
-    { title: "Sarute", url: "GZ8X_TLxmtg" },
-    { title: "Seishun Fragile", url: "p3u6MVT1TwA" },
-    { title: "Ren'ai x Royale", url: "rudbX-hFQc4" },
-  ],
-  1
-);
-const mockAllTitle = shuffleSeed.shuffle(
-  [
-    "Mirai Nostalgia",
-    "Hapymaher -Fragmentation Dream-",
-    "Hapymaher",
-    "Subarashiki Hibi ~Furenzoku Sonzai~",
-    "Einstein Yori Ai o Komete",
-    "9 -Nine- Yukiiro Yukihana Yukinoato",
-    "Hakuchuumu no Aojashin",
-    "Hamidashi Creative",
-    "Dohna Dohna -Issho ni Warui Koto o Shiyou-",
-    "Kakenuke★Seishun Sparking!",
-    "Houkago Cinderella",
-    "Petrichor",
-    "Sarute",
-    "Seishun Fragile",
-    "Ren'ai x Royale",
-  ],
-  1
-);
+const mockData = shuffleSeed.shuffle(_mockData, 1);
+const mockAllTitle = shuffleSeed.shuffle(_mockAllTitle, 1);
 function Content({ sendMessage, allScore }) {
   const [username, setUsername] = useState("");
   const [myScore, setMyScore] = useState(0);
