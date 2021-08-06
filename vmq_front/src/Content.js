@@ -31,15 +31,9 @@ import {
   BottomLeftTriangle,
 } from "./style_component";
 var shuffleSeed = require("shuffle-seed");
-function shuffle(a) {
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a;
-}
+
 const mockData = shuffleSeed.shuffle(_mockData, 1);
-const mockAllTitle = shuffleSeed.shuffle(_mockAllTitle, 1);
+const mockAllTitle = uniqueArray(shuffleSeed.shuffle(_mockAllTitle, 1));
 function Content({ sendMessage, allScore }) {
   const [username, setUsername] = useState("");
   const [myScore, setMyScore] = useState(0);
