@@ -6,7 +6,8 @@ const data = { foo: 1, bar: 2 };
 
 function App() {
   const [response, setResponse] = useState("");
-  const [allScore, setAllScore] = [];
+  const [allScore, setAllScore] = useState([]);
+  const [isStart, setIsStart] = useState(false);
   const sendMessage = (username, score) => {
     fetch(`${ENDPOINT}/update/?username=${username}&score=${score}`, {
       method: "GET",
@@ -34,8 +35,14 @@ function App() {
         It's <time dateTime={response}>{response}</time>
       </p>
       <button onClick={sendMessage}>test Emit</button>
-
-      <Content sendMessage={sendMessage} />
+      <button
+        onClick={() => {
+          setIsStart(true);
+        }}
+      >
+        <p>start</p>
+      </button>
+      {isStart && <Content sendMessage={sendMessage} allScore={allScore} />}
     </div>
   );
 }

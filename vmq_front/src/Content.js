@@ -43,7 +43,7 @@ const mockAllTitle = [
   "Hapymaher",
   "Subarashiki Hibi ~Furenzoku Sonzai~",
 ];
-function Content({ sendMessage }) {
+function Content({ sendMessage, allScore }) {
   const [username, setUsername] = useState("");
   const [myScore, setMyScore] = useState(0);
   const [index, setIndex] = useState(-1);
@@ -194,6 +194,18 @@ function Content({ sendMessage }) {
             <StyleButton>toggle hide </StyleButton>
             <StyleButton>random URL </StyleButton>
           </StyleButtonFrame>
+          <table>
+            <tr>
+              <th>Username</th>
+              <th>Score</th>
+            </tr>
+            {allScore.map((c) => (
+              <tr>
+                <td>{allScore.username}</td>
+                <td>{allScore.score}</td>
+              </tr>
+            ))}
+          </table>
         </StyleBody>
       </StyleBG>
     </StyleAPP>
