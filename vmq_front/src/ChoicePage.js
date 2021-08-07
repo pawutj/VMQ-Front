@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { shuffle, getRandomNFromArray } from "./util";
 import { _mockData, _mockAllTitle } from "./mock";
-
+import { ENDPOINT } from "./setting";
 const getChoice = () => [
   ...getRandomNFromArray(_mockData, 5),
   { title: "None", url: "None" },
