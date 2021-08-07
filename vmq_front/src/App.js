@@ -12,6 +12,7 @@ function App() {
   const [allScore, setAllScore] = useState([]);
   const [isStart, setIsStart] = useState(false);
   const [isEnd, setIsEnd] = useState(false);
+  const [songList, setSongList] = useState([]);
   const sendMessage = (username, score) => {
     fetch(`${ENDPOINT}/update/?username=${username}&score=${score}`, {
       method: "GET",
@@ -36,6 +37,12 @@ function App() {
       console.log("allscore");
       console.log(data);
       setAllScore(data);
+    });
+
+    socket.on("SongList", (data) => {
+      console.log("SongList");
+      console.log(data);
+      setSongList(data);
     });
 
     socket.on("Start", (data) => {
@@ -67,6 +74,7 @@ function App() {
           allScore={allScore}
           setIsStart={setIsStart}
           setIsEnd={setIsEnd}
+          songList={songList}
         />
       )}
       {isEnd && <EndCredit />}

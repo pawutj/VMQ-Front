@@ -14,7 +14,7 @@ function ChoicePage() {
     });
   };
   const random = ({ title, url }) => {
-    sendSong(title, url);
+    if (title != "None") sendSong(title, url);
     setRandomChoice(getChoice());
   };
   return (
