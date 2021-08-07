@@ -51,7 +51,10 @@ function shuffle(array) {
   return array;
 }
 
+const getRandomNFromArray = (array, n) => shuffle(array).slice(0, n);
+
 export {
+  getRandomNFromArray,
   shuffle,
   filterByVote,
   createNumeralArray,

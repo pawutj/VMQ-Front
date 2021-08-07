@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { shuffle } from "./util";
+
 function ChoicePage() {
   return (
     <div>
