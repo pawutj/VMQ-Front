@@ -8,9 +8,14 @@ const getChoice = () => [
 ];
 function ChoicePage() {
   const [randomChoice, setRandomChoice] = useState(getChoice());
-  const random = (c) => {
+  const sendSong = (title, url) => {
+    fetch(`${ENDPOINT}/addsong/?title=${title}&url=${url}`, {
+      method: "GET",
+    });
+  };
+  const random = ({ title, url }) => {
+    sendSong(title, url);
     setRandomChoice(getChoice());
-    console.log(c);
   };
   return (
     <div>
