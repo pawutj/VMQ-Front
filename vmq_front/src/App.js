@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import EndCredit from "./EndCredit";
 import socketIOClient from "socket.io-client";
 import Content from "./Content";
-const ENDPOINT = "http://127.0.0.1:4001";
-//const ENDPOINT = "http://159.138.246.162:4001";
+//const ENDPOINT = "http://127.0.0.1:4001";
+const ENDPOINT = "http://159.138.246.162:4001";
 
 const data = { foo: 1, bar: 2 };
 
