@@ -57,6 +57,7 @@ function App() {
         <Content
           sendMessage={sendMessage}
           allScore={allScore}
+          setIsStart={setIsStart}
           setIsEnd={setIsEnd}
         />
       )}

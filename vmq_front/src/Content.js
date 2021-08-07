@@ -38,7 +38,7 @@ const mockData = shuffleSeed.shuffle(_mockData, randomSeed);
 const mockAllTitle = uniqueArray(
   shuffleSeed.shuffle(_mockAllTitle, randomSeed)
 );
-function Content({ sendMessage, allScore, setIsEnd }) {
+function Content({ sendMessage, allScore, setIsEnd , setIsStart }) {
   const [username, setUsername] = useState("");
   const [myScore, setMyScore] = useState(0);
   const [index, setIndex] = useState(-1);
