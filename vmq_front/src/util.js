@@ -1,6 +1,6 @@
 const createNumeralArray = (n) => [...Array(n).keys()];
-const uniqueArray = items =>  [...new Set(items)]
-const jsonObjectTolist = n => Object.values(n)
+const uniqueArray = (items) => [...new Set(items)];
+const jsonObjectTolist = (n) => Object.values(n);
 const filterByVote = (t) => {
   //    console.log( Object.keys( t.key ).length ) ;
   //    console.log(t.vote1)
@@ -31,4 +31,30 @@ const filterByVote = (t) => {
   };
 };
 
-export { filterByVote, createNumeralArray,jsonObjectTolist ,uniqueArray};
+function shuffle(array) {
+  var currentIndex = array.length,
+    randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // And swap it with the current element.
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex],
+      array[currentIndex],
+    ];
+  }
+
+  return array;
+}
+
+export {
+  shuffle,
+  filterByVote,
+  createNumeralArray,
+  jsonObjectTolist,
+  uniqueArray,
+};
