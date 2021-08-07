@@ -184,7 +184,7 @@ const _mockData = [
   { title: "Wagamama High Spec", url: "OkrW4XW--fI" },
   { title: "Wagamama High Spec OC", url: "0BHz5Z2vaf8" },
   { title: "Wakaba-iro no Quartet", url: "5NNrcdkxg9M" },
-  { title: "Watashi ga Suki nara "Suki" tte Itte!", url: "eoM3JesiQdg" },
+  { title: "Watashi ga Suki nara Suki tte Itte!", url: "eoM3JesiQdg" },
   { title: "White Album 2", url: "i588G4isJr8" },
   { title: "White Album 2", url: "N-26_1aAC9Q" },
   { title: "White Album 2", url: "CT4nJL9vo9s" },
