@@ -9,5 +9,11 @@ Deploy on HuaweiCloud
 AstralAria - Developer  
 AraimaiRu - Developer  
 
+MiraoX - Tester  
+Boomerang - Tester  
+KagariCctane - Tester  
+!fuuchan - Tester  
+RinRin - Tester  
+
 
 
