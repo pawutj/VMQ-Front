@@ -18,6 +18,12 @@ function App() {
     });
   };
 
+  const sendStart = () => {
+    fetch(`${ENDPOINT}/start`, {
+      method: "GET",
+    });
+  };
+
   useEffect(() => {
     const socket = socketIOClient(ENDPOINT);
     socket.on("FromAPI", (data) => {
@@ -35,8 +41,8 @@ function App() {
     socket.on("Start", (data) => {
       console.log("Start");
       console.log(data);
-      fetch(`${ENDPOINT}/start`);
-      //setIsStart(true);
+
+      setIsStart(true);
     });
   }, []);
 
@@ -48,7 +54,7 @@ function App() {
       <button onClick={sendMessage}>test Emit</button>
       <button
         onClick={() => {
-          setIsStart(true);
+          sendStart(true);
         }}
       >
         <p>start</p>
