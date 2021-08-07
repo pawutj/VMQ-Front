@@ -38,7 +38,7 @@ const mockData = shuffleSeed.shuffle(_mockData, randomSeed);
 const mockAllTitle = uniqueArray(
   shuffleSeed.shuffle(_mockAllTitle, randomSeed)
 );
-function Content({ sendMessage, allScore, setIsEnd , setIsStart }) {
+function Content({ sendMessage, allScore, setIsEnd, setIsStart, songList }) {
   const [username, setUsername] = useState("");
   const [myScore, setMyScore] = useState(0);
   const [index, setIndex] = useState(-1);
@@ -54,11 +54,11 @@ function Content({ sendMessage, allScore, setIsEnd , setIsStart }) {
   };
   const getURL = (index) => {
     if (index == -1) return "0";
-    return mockData[index].url;
+    return songList[index].url;
   };
   const getTrueAnswer = (index) => {
     if (index == -1) return "-1";
-    return mockData[index].title;
+    return songList[index].title;
   };
 
   useEffect(() => {
@@ -193,7 +193,7 @@ function Content({ sendMessage, allScore, setIsEnd , setIsStart }) {
           </StyleYoutubeFrame>
           <StyleButtonFrame>
             <Styleh1>
-              {index}/{mockData.length}
+              {index}/{songList.length}
             </Styleh1>
 
             <Autocomplete
