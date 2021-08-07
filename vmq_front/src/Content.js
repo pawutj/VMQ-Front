@@ -66,7 +66,8 @@ function Content({ sendMessage, allScore, setIsEnd }) {
       setTime(time + 1);
 
       setIndex((index) => index + 1);
-      if (index >= mockData.length || index > maxSong) {
+      if (index > maxSong) {
+        setIsStart(false);
         setIsEnd(true);
         clearTimeout(timer);
       }
