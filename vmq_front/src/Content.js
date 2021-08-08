@@ -48,12 +48,16 @@ function Content({
   setPlayer,
   username,
   setUsername,
+  index,
+  setIndex,
+  url,
+  setUrl,
 }) {
   const [myScore, setMyScore] = useState(0);
-  const [index, setIndex] = useState(-1);
+
   const [trueAnswer, setTrueAnswer] = useState("");
   const [myAnswer, setMyAnswer] = useState("");
-  const [url, seturl] = useState("PWbi8J1_X5Q");
+
   const [isHide, setIsHide] = useState(false);
   const [time, setTime] = useState(0);
   const [value, setValue] = React.useState(80);
@@ -62,41 +66,41 @@ function Content({
     setValue(newValue);
     player.setVolume(newValue);
   };
-  const getURL = (index) => {
-    if (index >= songList.length) return "0";
-    if (index == -1) return "0";
-    return songList[index].url;
-  };
-  const getTrueAnswer = (index) => {
-    if (index >= songList.length) return "0";
-    if (index == -1) return "-1";
-    return songList[index].title;
-  };
+  // const getURL = (index) => {
+  //   if (index >= songList.length) return "0";
+  //   if (index == -1) return "0";
+  //   return songList[index].url;
+  // };
+  // const getTrueAnswer = (index) => {
+  //   if (index >= songList.length) return "0";
+  //   if (index == -1) return "-1";
+  //   return songList[index].title;
+  // };
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setTime(time + 1);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setTime(time + 1);
 
-      setIndex((index) => index + 1);
-    }, 30000);
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [time]);
+  //     setIndex((index) => index + 1);
+  //   }, 30000);
+  //   return () => {
+  //     clearTimeout(timer);
+  //   };
+  // }, [time]);
 
-  useEffect(() => {
-    if (index >= songList.length) {
-      console.log("end");
-      setIsStart(false);
-      setIsEnd(true);
-    }
-    checkAnswer();
-    const url = getURL(index);
-    const answer = getTrueAnswer(index);
-    seturl(url);
-    setTrueAnswer(answer);
-    console.log(url, answer);
-  }, [index]);
+  // useEffect(() => {
+  //   if (index >= songList.length) {
+  //     console.log("end");
+  //     setIsStart(false);
+  //     setIsEnd(true);
+  //   }
+  //   checkAnswer();
+  //   const url = getURL(index);
+  //   const answer = getTrueAnswer(index);
+  //   seturl(url);
+  //   setTrueAnswer(answer);
+  //   console.log(url, answer);
+  // }, [index]);
 
   useEffect(() => {
     sendMessage(username, myScore);
@@ -183,7 +187,7 @@ function Content({
                 onReady={onReady}
                 onPlay={onPlay}
                 onError={() => {
-                  setIndex(index + 1);
+                  //setIndex(index + 1);
                 }}
               />
             </StyleTriggerHide>

@@ -15,6 +15,8 @@ function App() {
   const [isEnd, setIsEnd] = useState(false);
   const [songList, setSongList] = useState([]);
   const [player, setPlayer] = useState("");
+  const [index, setIndex] = useState(-1);
+  const [url, seturl] = useState("PWbi8J1_X5Q");
   const sendMessage = (username, score) => {
     fetch(`${ENDPOINT}/update/?username=${username}&score=${score}`, {
       method: "GET",
@@ -52,6 +54,20 @@ function App() {
       console.log(data);
 
       setIsStart(true);
+    });
+
+    socket.on("IndexInterval", (data) => {
+      console.log("IndexInterval");
+      console.log(data);
+
+      setIndex(data);
+    });
+
+    socket.on("urlInterval", (data) => {
+      console.log("urlInterval");
+      console.log(data);
+
+      seturl(data);
     });
   }, []);
 
@@ -97,6 +113,10 @@ function App() {
           setPlayer={setPlayer}
           username={username}
           setUsername={setUsername}
+          setIndex={setIndex}
+          index={index}
+          url={url}
+          seturl={seturl}
         />
       )}
       {isEnd && <EndCredit />}
