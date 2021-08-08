@@ -78,11 +78,6 @@ function Content({
       setTime(time + 1);
 
       setIndex((index) => index + 1);
-      if (index > maxSong) {
-        setIsStart(false);
-        setIsEnd(true);
-        clearTimeout(timer);
-      }
     }, 30000);
     return () => {
       clearTimeout(timer);
@@ -90,6 +85,11 @@ function Content({
   }, [time]);
 
   useEffect(() => {
+    if (index >= songList.length) {
+      console.log("end");
+      setIsStart(false);
+      setIsEnd(true);
+    }
     checkAnswer();
     const url = getURL(index);
     const answer = getTrueAnswer(index);
