@@ -8,6 +8,7 @@ import { ENDPOINT } from "./setting";
 const data = { foo: 1, bar: 2 };
 
 function App() {
+  const [myChoice, setMyChoice] = useState(0);
   const [username, setUsername] = useState("");
   const [response, setResponse] = useState("");
   const [allScore, setAllScore] = useState([]);
@@ -125,7 +126,7 @@ function App() {
         </label>
       </form>
 
-      {!isStart && <ChoicePage />}
+      {!isStart && <ChoicePage myChoice={myChoice} setMyChoice={setMyChoice} />}
       {isStart && isEnd == false && (
         <Content
           sendMessage={sendMessage}
