@@ -38,7 +38,15 @@ const mockData = shuffleSeed.shuffle(_mockData, randomSeed);
 const mockAllTitle = uniqueArray(
   shuffleSeed.shuffle(_mockAllTitle, randomSeed)
 );
-function Content({ sendMessage, allScore, setIsEnd, setIsStart, songList }) {
+function Content({
+  sendMessage,
+  allScore,
+  setIsEnd,
+  setIsStart,
+  songList,
+  player,
+  setPlayer,
+}) {
   const [username, setUsername] = useState("");
   const [myScore, setMyScore] = useState(0);
   const [index, setIndex] = useState(-1);
@@ -51,6 +59,7 @@ function Content({ sendMessage, allScore, setIsEnd, setIsStart, songList }) {
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+    player.setVolume(newValue);
   };
   const getURL = (index) => {
     if (index == -1) return "0";
@@ -112,11 +121,15 @@ function Content({ sendMessage, allScore, setIsEnd, setIsStart, songList }) {
   const onReady = (event) => {
     // access to player in all event handlers via event.target
     event.target.pauseVideo();
+    setPlayer(event.target);
+    //   this.setState({
+    //     "player": event.target
+    // });
   };
 
   const onPlay = (event) => {
     // console.log(event.target.getVolume(), "!!!!!!!!!!");
-    event.target.setVolume(value);
+    //event.target.setVolume(value);
   };
 
   return (

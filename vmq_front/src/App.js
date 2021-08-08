@@ -13,6 +13,7 @@ function App() {
   const [isStart, setIsStart] = useState(false);
   const [isEnd, setIsEnd] = useState(false);
   const [songList, setSongList] = useState([]);
+  const [player, setPlayer] = useState("");
   const sendMessage = (username, score) => {
     fetch(`${ENDPOINT}/update/?username=${username}&score=${score}`, {
       method: "GET",
@@ -75,6 +76,8 @@ function App() {
           setIsStart={setIsStart}
           setIsEnd={setIsEnd}
           songList={songList}
+          player={player}
+          setPlayer={setPlayer}
         />
       )}
       {isEnd && <EndCredit />}
