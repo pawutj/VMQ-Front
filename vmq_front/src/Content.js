@@ -53,14 +53,15 @@ function Content({
   url,
   setUrl,
   isSolutionMode,
+  trueAnswer,
+  time,
 }) {
   const [myScore, setMyScore] = useState(0);
 
-  const [trueAnswer, setTrueAnswer] = useState("");
   const [myAnswer, setMyAnswer] = useState("");
 
   const [isHide, setIsHide] = useState(false);
-  const [time, setTime] = useState(0);
+
   const [value, setValue] = React.useState(80);
 
   const handleChange = (event, newValue) => {
@@ -89,19 +90,14 @@ function Content({
   //   };
   // }, [time]);
 
-  // useEffect(() => {
-  //   if (index >= songList.length) {
-  //     console.log("end");
-  //     setIsStart(false);
-  //     setIsEnd(true);
-  //   }
-  //   checkAnswer();
-  //   const url = getURL(index);
-  //   const answer = getTrueAnswer(index);
-  //   seturl(url);
-  //   setTrueAnswer(answer);
-  //   console.log(url, answer);
-  // }, [index]);
+  useEffect(() => {
+    // if (index >= songList.length) {
+    //   console.log("end");
+    //   setIsStart(false);
+    //   setIsEnd(true);
+    // }
+    if (time % 45 == 30) checkAnswer();
+  }, [time]);
 
   useEffect(() => {
     sendMessage(username, myScore);
@@ -111,6 +107,7 @@ function Content({
     const true_a = trueAnswer;
     const my_a = myAnswer;
     console.log(true_a, "!!!", my_a);
+    console.log("");
     if (true_a == my_a) {
       console.log("True");
       setMyScore(myScore + 1);

@@ -18,6 +18,8 @@ function App() {
   const [index, setIndex] = useState(-1);
   const [url, seturl] = useState("PWbi8J1_X5Q");
   const [isSolutionMode, setIsSolutionMode] = useState(false);
+  const [trueAnswer, setTrueAnswer] = useState("None");
+  const [time, setTime] = useState(0);
   const sendMessage = (username, score) => {
     fetch(`${ENDPOINT}/update/?username=${username}&score=${score}`, {
       method: "GET",
@@ -33,49 +35,63 @@ function App() {
   useEffect(() => {
     const socket = socketIOClient(ENDPOINT);
     socket.on("FromAPI", (data) => {
-      console.log("UPDATE");
-      console.log(data);
+      // console.log("UPDATE");
+      // console.log(data);
       setResponse(data);
     });
 
     socket.on("AllScore", (data) => {
-      console.log("allscore");
-      console.log(data);
+      // console.log("allscore");
+      // console.log(data);
       setAllScore(data);
     });
 
     socket.on("SongList", (data) => {
-      console.log("SongList");
-      console.log(data);
+      // console.log("SongList");
+      // console.log(data);
       setSongList(data);
     });
 
     socket.on("Start", (data) => {
-      console.log("Start");
-      console.log(data);
+      // console.log("Start");
+      // console.log(data);
 
       setIsStart(true);
     });
 
     socket.on("IndexInterval", (data) => {
-      console.log("IndexInterval");
-      console.log(data);
+      // console.log("IndexInterval");
+      // console.log(data);
 
       setIndex(data);
     });
 
     socket.on("urlInterval", (data) => {
-      console.log("urlInterval");
-      console.log(data);
+      // console.log("urlInterval");
+      // console.log(data);
 
       seturl(data);
     });
 
     socket.on("SolutionInterval", (data) => {
-      console.log("SolutionInterval");
-      console.log(data);
+      // console.log("SolutionInterval");
+      // console.log(data);
 
       setIsSolutionMode(data);
+    });
+
+    socket.on("TrueAnswerInterval", (data) => {
+      console.log("TrueAnswerInterval");
+      console.log(data);
+
+      setTrueAnswer(data);
+    });
+
+    socket.on("TimeInterval", (data) => {
+      console.log("TimeInterval");
+      console.log(data);
+
+      setTime(data);
     });
   }, []);
 
@@ -126,6 +142,8 @@ function App() {
           url={url}
           seturl={seturl}
           isSolutionMode={isSolutionMode}
+          trueAnswer={trueAnswer}
+          time={time}
         />
       )}
       {isEnd && <EndCredit />}
