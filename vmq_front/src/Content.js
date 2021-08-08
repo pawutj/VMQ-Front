@@ -128,7 +128,7 @@ function Content({
   };
   const onReady = (event) => {
     // access to player in all event handlers via event.target
-    event.target.pauseVideo();
+    // event.target.pauseVideo();
     setPlayer(event.target);
     //   this.setState({
     //     "player": event.target
