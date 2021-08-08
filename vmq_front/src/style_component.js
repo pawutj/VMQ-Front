@@ -32,6 +32,7 @@ const StyleYoutubeFrame = styled.div`
 `;
 const StyleTriggerHide = styled.div`
   display: ${(props) => (props.isHide ? "block" : "none")};
+  z-index: 1000;
 `;
 const Stylemaibok = styled.div`
   background-color: #496370;

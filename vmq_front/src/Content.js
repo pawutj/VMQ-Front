@@ -52,6 +52,7 @@ function Content({
   setIndex,
   url,
   setUrl,
+  isSolutionMode,
 }) {
   const [myScore, setMyScore] = useState(0);
 
@@ -180,7 +181,7 @@ function Content({
           <h1>myScore {myScore}</h1>
 
           <StyleYoutubeFrame>
-            <StyleTriggerHide isHide={isHide}>
+            <StyleTriggerHide isHide={isSolutionMode}>
               <YouTube
                 videoId={url}
                 opts={opts}
@@ -192,7 +193,7 @@ function Content({
               />
             </StyleTriggerHide>
 
-            <StyleTriggerHide isHide={!isHide}>
+            <StyleTriggerHide isHide={!isSolutionMode}>
               <Stylemaibok />
             </StyleTriggerHide>
           </StyleYoutubeFrame>

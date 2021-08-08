@@ -17,6 +17,7 @@ function App() {
   const [player, setPlayer] = useState("");
   const [index, setIndex] = useState(-1);
   const [url, seturl] = useState("PWbi8J1_X5Q");
+  const [isSolutionMode, setIsSolutionMode] = useState(false);
   const sendMessage = (username, score) => {
     fetch(`${ENDPOINT}/update/?username=${username}&score=${score}`, {
       method: "GET",
@@ -69,6 +70,13 @@ function App() {
 
       seturl(data);
     });
+
+    socket.on("SolutionInterval", (data) => {
+      console.log("SolutionInterval");
+      console.log(data);
+
+      setIsSolutionMode(data);
+    });
   }, []);
 
   return (
@@ -117,6 +125,7 @@ function App() {
           index={index}
           url={url}
           seturl={seturl}
+          isSolutionMode={isSolutionMode}
         />
       )}
       {isEnd && <EndCredit />}
