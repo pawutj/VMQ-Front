@@ -191,7 +191,9 @@ function Content({
             </StyleTriggerHide>
 
             <StyleTriggerHide isHide={!isSolutionMode}>
-              <Stylemaibok />
+              <Stylemaibok>
+                <h1>{30 - (time % 45)}</h1>
+              </Stylemaibok>
             </StyleTriggerHide>
           </StyleYoutubeFrame>
           <StyleButtonFrame>
