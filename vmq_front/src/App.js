@@ -8,6 +8,7 @@ import { ENDPOINT } from "./setting";
 const data = { foo: 1, bar: 2 };
 
 function App() {
+  const [username, setUsername] = useState("");
   const [response, setResponse] = useState("");
   const [allScore, setAllScore] = useState([]);
   const [isStart, setIsStart] = useState(false);
@@ -68,6 +69,22 @@ function App() {
         <p>start</p>
       </button>
 
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+        }}
+      >
+        <label>
+          Name:
+          <input
+            type="text"
+            name="name"
+            onChange={(e) => setUsername(e.target.value)}
+            value={username}
+          />
+        </label>
+      </form>
+
       {!isStart && <ChoicePage />}
       {isStart && isEnd == false && (
         <Content
@@ -78,6 +95,8 @@ function App() {
           songList={songList}
           player={player}
           setPlayer={setPlayer}
+          username={username}
+          setUsername={setUsername}
         />
       )}
       {isEnd && <EndCredit />}

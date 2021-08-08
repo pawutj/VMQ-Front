@@ -46,8 +46,9 @@ function Content({
   songList,
   player,
   setPlayer,
+  username,
+  setUsername,
 }) {
-  const [username, setUsername] = useState("");
   const [myScore, setMyScore] = useState(0);
   const [index, setIndex] = useState(-1);
   const [trueAnswer, setTrueAnswer] = useState("");
@@ -62,10 +63,12 @@ function Content({
     player.setVolume(newValue);
   };
   const getURL = (index) => {
+    if (index >= songList.length) return "0";
     if (index == -1) return "0";
     return songList[index].url;
   };
   const getTrueAnswer = (index) => {
+    if (index >= songList.length) return "0";
     if (index == -1) return "-1";
     return songList[index].title;
   };
@@ -168,21 +171,6 @@ function Content({
 
       <StyleBG style={{ height: window.innerHeight }}>
         <StyleBody>
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-            }}
-          >
-            <label>
-              Name:
-              <input
-                type="text"
-                name="name"
-                onChange={(e) => setUsername(e.target.value)}
-                value={username}
-              />
-            </label>
-          </form>
           <SoundSlider value={value} handleChange={handleChange} />
           <Styleh1>ReactGuessYoutube</Styleh1>
           <h1>myScore {myScore}</h1>
