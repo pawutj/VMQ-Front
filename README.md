@@ -14,6 +14,7 @@ Boomerang - Tester
 KagariCctane - Tester  
 !fuuchan - Tester  
 RinRin - Tester  
+LanSloth - Tester
 
 
 
