@@ -331,8 +331,10 @@ const _mockData = [
     title: "Sorceress * Alive! ~the World's End Fallen Star~",
     url: "bmF1emgv5cQ",
   },
-  { title: "Tamayura mirai", url: "DXOl9ek5dJw" },
-  { title: "nanairo reincarnation", url: "JKOiKtbo5Vs" },
+  { title: "Mary Skelter: Nightmares", url: "teNIJIiCtAU" },
+  { title: "Mary Skelter: Nightmares 2", url: "dTaFeFIbLJg" },
+  { title: "Mary Skelter: Nightmares Final", url: "CtJ3OPhGdEU" },
+  { title: "Evenicle 2", url: "f4p4bVVa_7s" },
 ];
 
 const _mockAllTitle = _mockData.map((c) => c.title);
