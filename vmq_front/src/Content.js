@@ -201,6 +201,8 @@ function Content({
               {index}/{songList.length}
             </Styleh1>
 
+            {isSolutionMode && <h1>{trueAnswer}</h1>}
+            {!isSolutionMode && <h1>Answer</h1>}
             <Autocomplete
               id="free-solo-demo"
               options={mockAllTitle}
