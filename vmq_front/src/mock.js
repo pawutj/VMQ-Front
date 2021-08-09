@@ -303,6 +303,6 @@ const _mockData = [
   { title: "11eyes -Tsumi to Batsu to Aganai no Shoujo-", url: "jBrfcD_q2m8" },
 ];
 
-const _mockAllTitle = _mockData.map((c) => c.titile);
+const _mockAllTitle = _mockData.map((c) => c.title);
 
 export { _mockData, _mockAllTitle };
