@@ -104,7 +104,7 @@ function App() {
       <button onClick={sendMessage}>test Emit</button>
       <button
         onClick={() => {
-          sendStart(true);
+          if (username == "astralair") sendStart(true);
         }}
       >
         <p>start</p>
