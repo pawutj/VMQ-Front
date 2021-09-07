@@ -55,6 +55,7 @@ function Content({
   isSolutionMode,
   trueAnswer,
   time,
+  randomTime,
 }) {
   const [myScore, setMyScore] = useState(0);
 
@@ -181,7 +182,10 @@ function Content({
             <StyleTriggerHide isHide={isSolutionMode}>
               <YouTube
                 videoId={url}
-                opts={opts}
+                opts={{
+                  ...opts,
+                  playerVars: { autoplay: 1, start: randomTime },
+                }}
                 onReady={onReady}
                 onPlay={onPlay}
                 onError={() => {

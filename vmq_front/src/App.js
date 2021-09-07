@@ -8,6 +8,7 @@ import { ENDPOINT } from "./setting";
 const data = { foo: 1, bar: 2 };
 
 function App() {
+  const [randomTime, setRandomTime] = useState(30);
   const [myChoice, setMyChoice] = useState(0);
   const [username, setUsername] = useState("");
   const [response, setResponse] = useState("");
@@ -88,6 +89,13 @@ function App() {
       setTrueAnswer(data);
     });
 
+    socket.on("RandomTime", (data) => {
+      // console.log("TrueAnswerInterval");
+      //console.log(data);
+
+      setRandomTime(data);
+    });
+
     socket.on("TimeInterval", (data) => {
       console.log("TimeInterval");
       console.log(data);
@@ -145,6 +153,7 @@ function App() {
           isSolutionMode={isSolutionMode}
           trueAnswer={trueAnswer}
           time={time}
+          randomTime={randomTime}
         />
       )}
       {isEnd && <EndCredit />}
