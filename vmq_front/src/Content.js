@@ -182,10 +182,7 @@ function Content({
             <StyleTriggerHide isHide={isSolutionMode}>
               <YouTube
                 videoId={url}
-                opts={{
-                  ...opts,
-                  playerVars: { autoplay: 1, start: randomTime },
-                }}
+                opts={opts}
                 onReady={onReady}
                 onPlay={onPlay}
                 onError={() => {
