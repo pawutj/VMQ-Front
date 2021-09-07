@@ -64,7 +64,7 @@ const getRandomNFromArray = (array, n) => shuffleArray(array).slice(0, n);
 
 export {
   getRandomNFromArray,
-  shuffle,
+  shuffleArray,
   filterByVote,
   createNumeralArray,
   jsonObjectTolist,
