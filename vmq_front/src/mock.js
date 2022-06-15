@@ -450,7 +450,7 @@ const _mockData = [
   { title: "Neko to Wakai Seyo!", url: "x2-bkQxdmg8" },
   { title: "Tsuki ni Yorisou Otome no Sahou", url: "XMt5fOyZpWc" },
   { title: "Little Busters!", url: "NJ1maDVtIx8" },
-  { title: "Little Busters! ", url: "rdpqerzaosA" },
+  { title: "Little Busters!", url: "rdpqerzaosA" },
   { title: "Muv Luv Alternative", url: "HCLQn-OCdEA" },
   { title: "PRIMAL×HEARTS2", url: "FQSvToMi_7I" },
   { title: "Aiyoku no Eustia", url: "r2U9ifulhJ8" },

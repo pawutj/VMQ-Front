@@ -51,13 +51,33 @@ const filterByVote = (t) => {
 //   return array;
 // }
 
+// const shuffleArray = (array) => {
+//   let _array = array;
+//   for (let i = _array.length - 1; i > 0; i--) {
+//     const j = Math.floor(Math.random() * (i + 1));
+//     [_array[i], _array[j]] = [_array[j], _array[i]];
+//   }
+//   return _array;
+// };
+
 const shuffleArray = (array) => {
-  let _array = array;
-  for (let i = _array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [_array[i], _array[j]] = [_array[j], _array[i]];
+  let currentIndex = array.length,
+    randomIndex;
+
+  // While there remain elements to shuffle.
+  while (currentIndex != 0) {
+    // Pick a remaining element.
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // And swap it with the current element.
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex],
+      array[currentIndex],
+    ];
   }
-  return _array;
+
+  return array;
 };
 
 const getRandomNFromArray = (array, n) => shuffleArray(array).slice(0, n);
