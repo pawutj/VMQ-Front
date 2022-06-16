@@ -442,7 +442,6 @@ const _mockData = [
   { title: "Hare Nochi Kitto Nanohana Biyori", url: "MgG3bWa-mVI" },
   { title: "Ao no Kanata no Four Rhythm EXTRA2", url: "XnxKFvEVI8E" },
   { title: "LOOPERS", url: "b1k6QcWxu4Q" },
-  { title: "Neko to Wakai Seyo!", url: "x2-bkQxdmg8" },
   { title: "Tsuki ni Yorisou Otome no Sahou", url: "XMt5fOyZpWc" },
   { title: "Little Busters!", url: "NJ1maDVtIx8" },
   { title: "Little Busters!", url: "rdpqerzaosA" },
