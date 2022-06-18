@@ -378,7 +378,6 @@ const _mockData = [
   { title: "Haruru Minamo ni!", url: "qb5Z0Ib505o" },
   { title: "Tsukikage no Simulacre", url: "dvobRrghezQ" },
   { title: "Sumire", url: "2pxohcsk9I0" },
-  { title: "Chikan Senyou Sharyou 2", url: "5pEYvNO831I" },
   { title: "1/7 no Mahoutsukai", url: "_5qP1PWZ0wQ" },
   { title: "Minamijuujisei Renka", url: "RcWmcP9f7jE" },
   { title: "Hana Hime * Absolute!", url: "LrKy7LTASZo" },
