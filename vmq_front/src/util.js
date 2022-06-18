@@ -89,7 +89,7 @@ const createRandomKey = (length) => [
 ];
 //const getRandomNFromArray = (array, n) => shuffleArray(array).slice(0, n);
 const getRandomNFromArray = (array, n) =>
-  createRandomKey(array.length).map((i) => shuffleArray(array)[i]);
+  createRandomKey(array.length).map((i) => array[i]);
 export {
   getRandomNFromArray,
   shuffleArray,
