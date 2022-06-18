@@ -14,7 +14,7 @@ function ChoicePage({ myChoice, setMyChoice }) {
     });
   };
   const random = ({ title, url }) => {
-    if (myChoice < 15) {
+    if (myChoice < 10) {
       if (title != "None") sendSong(title, url);
       setRandomChoice(getChoice());
       if (title != "None") setMyChoice(myChoice + 1);
@@ -23,7 +23,7 @@ function ChoicePage({ myChoice, setMyChoice }) {
   return (
     <div>
       <h1>Choose your favorite VN Ex. AstralAir </h1>
-      <h2>{`${myChoice}/15`}</h2>
+      <h2>{`${myChoice}/10`}</h2>
       {randomChoice.map((c) => (
         <button style={{ margin: 10 }} onClick={() => random(c)}>
           <h4>{c.title}</h4>
