@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { shuffle, getRandomNFromArray } from "./util";
-import { _mockData, _mockAllTitle } from "./mock";
+import { _shuffleArray, getRandomNFromArray } from "./util";
+import { _mockData, _mockAllTitle, _mockAllTitleWithKey } from "./mock";
 import { ENDPOINT } from "./setting";
 const getChoice = () => [
-  ...getRandomNFromArray(_mockData, 5),
+  ...getRandomNFromArray(_mockAllTitleWithKey, 5),
   { title: "None", url: "None" },
 ];
 function ChoicePage({ myChoice, setMyChoice }) {
+  console.log(_mockAllTitleWithKey);
   const [randomChoice, setRandomChoice] = useState(getChoice());
   const sendSong = (title, url) => {
     fetch(`${ENDPOINT}/addsong/?title=${title}&url=${url}`, {
@@ -14,8 +15,10 @@ function ChoicePage({ myChoice, setMyChoice }) {
     });
   };
   const random = ({ title, url }) => {
+    const temp = _shuffleArray(_mockData.filter((c) => c.title == title))[0];
+
     if (myChoice < 10) {
-      if (title != "None") sendSong(title, url);
+      if (title != "None") sendSong(temp.title, temp.url);
       setRandomChoice(getChoice());
       if (title != "None") setMyChoice(myChoice + 1);
     }
