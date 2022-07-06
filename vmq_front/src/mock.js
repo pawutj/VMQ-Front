@@ -217,7 +217,7 @@ const _mockData = [
   { title: "Yorite Konoha wa Kurenai ni", url: "xiNNeoWajvk" },
   { title: "Your diary", url: "f_h_V6vkFYQ" },
   { title: "Yuki iro Sign", url: "NcZLC80esoQ" },
-  { title: "Yume to Iro de Dekiteiru", url: "THGFIMHGhEI" },
+  { title: "Yume to Iro de Dekiteiru", url: "ktOpWwiTFMI" },
   { title: "Yumeutsutsu Re:Master", url: "lD-yUC87-BQ" },
   { title: "Material Brave Ignition", url: "s2CuXxF-NqQ" },
   { title: "Sora no Mukou de Sakimasu you ni", url: "8EaOBNstM9A" },
@@ -518,7 +518,7 @@ const _mockData = [
     url: "MWyWy94QA-E",
   },
   { title: "Grisaia no Rakuen -LE EDEN DE LA GRISAIA-", url: "xu9N0rtV4lc" },
-  { title: "PRIMAL×HEARTS2", url: "TWag87slcrk" },
+  { title: "PRIMAL×HEARTS2", url: "zRS-Au6YSq4" },
   { title: "Golden Hour", url: "wDkPac9qc3I" },
   {
     title: "Yumekoi ~Yume Miru Mahou Shoujo to Koi no Jumon~",
@@ -683,6 +683,9 @@ const _mockData = [
   { title: "Tenshin Ranman - Lucky or Unlucky!?", url: "dBcHtoPW9oQ" },
   { title: "Natsuzora Kanata", url: "tZex-pAybl4" },
   { title: "Hello,good bye", url: "TWB643L7qso" },
+  { title:"Ever 17",url: "zMn9ZPJ_8D0"},
+  { title:"G-senjou no Maou",url: "7RrlNnaOzoE"},
+  { title:"G-senjou no Maou",url: "ahYIsT-xJMw"},
   { title: "Sharin no Kuni, Himawari no Shoujo", url: "k6RHKVQC4ak" },
   {
     title: "Meguru Kisetsu no Yakusoku to, Tsunaida Sono Te no Nukumori to",
