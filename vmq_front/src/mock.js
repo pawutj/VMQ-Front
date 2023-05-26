@@ -7,7 +7,6 @@ const _mockData = [
   { title: "9 -Nine- Sorairo Sorauta Soranooto", url: "vKgeqjecF2w" },
   { title: "9 -Nine- Kokonotsu Kokonoka Kokonoiro", url: "dGBIL56a4tA" },
   { title: "9 -Nine- Yukiiro Yukihana Yukinoato", url: "LH0yFFPBTuc" },
-  { title: "9 -Nine- Yukiiro Yukihana Yukinoato", url: "LNCPBVcI1WI" },
   { title: "9 -Nine- Yukiiro Yukihana Yukinoato", url: "0GmSG_5g5i8" },
   { title: "Ai Kiss 2", url: "su5x77TDUho" },
   { title: "Aikotoba", url: "UnVnIITvA0k" },
